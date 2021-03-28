@@ -8,12 +8,11 @@ namespace Kerberos
         private static readonly HttpClient client = new HttpClient();
         static async Task Main(string[] args)
         {
-            await DoStuff(args[0]);
+            await Curl(args[0]);
         }
 
-        private static async Task DoStuff(string url) {
-            var stringTask = client.GetStringAsync(url);
-            var msg = await stringTask;
+        private static async Task Curl(string url) {
+            var msg = await client.GetStringAsync(url);
             System.Console.Write(msg);
         }
     }
